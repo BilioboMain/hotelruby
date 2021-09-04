@@ -1,6 +1,6 @@
 class BookingsController < ApplicationController
   def index
-    
+    @rooms=Room.all()
   end
 
   def create
@@ -11,6 +11,6 @@ class BookingsController < ApplicationController
   end
 
   def new 
-
+    @rooms=Room.all()
   end
 end

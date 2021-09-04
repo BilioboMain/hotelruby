@@ -15,10 +15,10 @@
   <div class="col-lg-8">
     <div class="form-floating">
       <select class="form-select" id="floatingSelectGrid" aria-label="Floating label select example" name="booking[room_name]">
-        <option selected>Выберите</option>
-        <option value="1">Lux</option>
-        <option value="2">Standart</option>
-        <option value="3">Standert+</option>
+      <% @rooms.each do |room|%>
+
+        <option selected><%= room.name%></option>
+        <%end%>
       </select>
       <label for="floatingSelectGrid">Номера</label>
     </div>
