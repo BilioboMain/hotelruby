@@ -10,7 +10,7 @@
                             <!-- Blog post-->
                             <% @rooms.each do |room|%>
                             <div class="card mb-4">
-                                <a href="#!"><img class="card-img-top" src="https://dummyimage.com/700x350/dee2e6/6c757d.jpg" alt="..." /></a>
+                                <a href="#!"><%= image_tag(room.name+".jpg", :alt => "rss feed",width: "560", heigth: "300") %></a>
                                 <div class="card-body">
                                     <div class="small text-muted"><%= room.name%></div>
                                     <h2 class="card-title h4"><%= room.body.length <= 300? room.body : room.body[0..300]%></h2>
