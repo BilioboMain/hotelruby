@@ -3,6 +3,8 @@ Rails.application.routes.draw do
   get '/', to: "mainpage#index"
   get 'rooms' , to: "rooms#index"
   get 'rooms/:id', to:"rooms#show"
+  get 'reviews/new', to: 'reviews#new'
+  post 'reviews/create', to: 'reviews#create'
   #root to: "rooms#index"
 
   #get 'rooms/:id', to:"rooms#show"

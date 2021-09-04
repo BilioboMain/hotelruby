@@ -1,0 +1,23 @@
+<div class="col-lg-8">
+<form action="/reviews/create" , method="POST" >
+  <div class="mb-3">
+    <label for="name" class="form-label">Имя</label>
+    <input type="text" class="form-control" name="review[author_name]">
+  </div>
+  <div class="mb-3">
+    <label for="exampleInputEmail1" class="form-label">Email address</label>
+    <input type="email" name="review[email]" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+    <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+  </div>
+  <div class="mb-3">
+    <label for="body" class="form-label">Отзыв</label>
+    <input type="text" class="form-control" name="review[body]"> 
+  </div>
+  <div class="mb-3 form-check">
+    <input type="checkbox" class="form-check-input" id="exampleCheck1">
+    <label class="form-check-label" for="exampleCheck1">Check me out</label>
+  </div>
+  <%= hidden_field_tag :authenticity_token, form_authenticity_token%>
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+</div>
