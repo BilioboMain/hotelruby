@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  post 'bookings/create', to:"bookings#create"
+  get 'bookings/', to: "bookings#index"
+  get 'bookings/booked'
   get 'reviews', to: "reviews#index"
   get '/', to: "mainpage#index"
   get 'rooms' , to: "rooms#index"
