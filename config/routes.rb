@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  get 'reviews_admin/index'
+  devise_for :admins
+  get 'admins_panel', to:'admins_panel#index'
+  get 'reviews_admin', to:'reviews_admin#index'
   post 'bookings/create', to:"bookings#create"
   get 'bookings/', to: "bookings#index"
   get 'bookings/booked'
@@ -8,8 +12,7 @@ Rails.application.routes.draw do
   get 'rooms/:id', to:"rooms#show"
   get 'reviews/new', to: 'reviews#new'
   post 'reviews/create', to: 'reviews#create'
-  #root to: "rooms#index"
-
+  root to: "admins_panel#index"
   #get 'rooms/:id', to:"rooms#show"
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

@@ -17,4 +17,8 @@ class ReviewsController < ApplicationController
 
     redirect_to '/reviews/'
   end
+  def update
+    @review = Review.find(params[:id])
+    @review.update({'posted': true})
+  end
 end
