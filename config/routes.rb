@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :rooms_admins
   get 'reviews_admin/index'
   devise_for :admins
   get 'admins_panel', to:'admins_panel#index'
