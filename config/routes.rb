@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'bookings_admin', to: 'bookings_admin#index'
   resources :rooms_admins
   get 'reviews_admin/index'
   devise_for :admins
@@ -6,6 +7,8 @@ Rails.application.routes.draw do
   get 'reviews_admin', to:'reviews_admin#index'
   post '/reviews_admin/update', to:'reviews_admin#update'
   post '/reviews_admin/hide', to:'reviews_admin#hide'
+  post '/bookings_admin/update', to:'bookings_admin#update'
+  post '/bookings_admin/hide', to:'bookings_admin#hide'
   post 'bookings/create', to:"bookings#create"
   get 'bookings/', to: "bookings#index"
   get 'bookings/booked'

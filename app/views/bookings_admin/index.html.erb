@@ -1,0 +1,37 @@
+        <!-- Page content-->
+        <div class="container">
+            <div class="row">
+                <!-- Blog entries-->
+                <div class="col-lg-10">
+                    <h1>Все брони</h1> 
+                    <!-- Featured blog post-->
+                    <!-- Nested row for non-featured blog posts-->
+                    <div class="row">
+                        <div class="col-lg-8">
+                            <% @bookings.each do |booking|%>
+                                <div class="card mb-4">
+                                <div class="card-body">
+                                    <div class="small text-muted"><%=booking.created_at%></div>
+                                    <h2 class="card-title h4"><%= booking.name%></h2>
+                                    <h3 class="card-title h4">Дата въезда:<%= booking.date_in%></h3>
+                                    <h3 class="card-title h4">Дата выезда<%= booking.date_out%></h3>
+                                    <p class="card-text"><%=booking.email%></p>
+                                    <% if booking.confirmed == false %>
+                                        <form action="/bookings_admin/update", method="POST">
+                                        <%= hidden_field_tag :authenticity_token, form_authenticity_token%>
+                                            <input type hidden name="id" value=<%=booking.id%>>
+                                            <button type="submit" class="btn btn-primary">Подтвердить</button>
+                                        </form>
+                                        <% end %> 
+                                    <% if booking.confirmed == true %>
+                                        <form action="/bookings_admin/hide", method="POST">
+                                        <%= hidden_field_tag :authenticity_token, form_authenticity_token%>
+                                            <input type hidden name="id" value=<%=booking.id%>>
+                                            <button type="submit" class="btn btn-primary">Отказать</button>
+                                        </form>
+                                    <% end %> 
+                                </div>  
+                            </div>
+                            <%end%>
+                        </div>
+                    </div>

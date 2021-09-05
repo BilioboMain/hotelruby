@@ -4,7 +4,8 @@ class BookingsController < ApplicationController
   end
 
   def create
-    @booking = Booking.new(params.require(:booking).permit(:name,:email, :date_in, :date_out, :room))
+    @booking = Booking.new(params.require(:booking).permit(:name,:email, :date_in, :date_out, :room_name))
+    @booking.update({'confirmed': false})
     @booking.save
 
     redirect_to '/bookings/booked'
