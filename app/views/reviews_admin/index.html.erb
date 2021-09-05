@@ -1,11 +1,9 @@
         <!-- Page content-->
-        <form action="/reviews_admin/update", method="POST">
         <div class="container">
             <div class="row">
                 <!-- Blog entries-->
                 <div class="col-lg-10">
-                    <h1>Все отзывы   <%= hidden_field_tag :authenticity_token, form_authenticity_token%>
-  <button type="submit" class="btn btn-primary">Отправить</button> </h1>
+                    <h1>Все отзывы  </h1> 
                     <!-- Featured blog post-->
                     <!-- Nested row for non-featured blog posts-->
                     <div class="row">
@@ -16,8 +14,20 @@
                                     <div class="small text-muted"><%=review.created_at%></div>
                                     <h2 class="card-title h4"><%= review.author_name%></h2>
                                     <p class="card-text"><%=review.body%></p>
-                                    
-                                    <%= check_box_tag 'id', review.id%>
+                                    <% if review.posted == false %>
+                                        <form action="/reviews_admin/update", method="POST">
+                                        <%= hidden_field_tag :authenticity_token, form_authenticity_token%>
+                                            <input type hidden name="id" value=<%=review.id%>>
+                                            <button type="submit" class="btn btn-primary">Опубликовать</button>
+                                        </form>
+                                        <% end %> 
+                                    <% if review.posted == true %>
+                                        <form action="/reviews_admin/hide", method="POST">
+                                        <%= hidden_field_tag :authenticity_token, form_authenticity_token%>
+                                            <input type hidden name="id" value=<%=review.id%>>
+                                            <button type="submit" class="btn btn-primary">Убрать</button>
+                                        </form>
+                                    <% end %> 
                                 </div>  
                             </div>
                             <%end%>

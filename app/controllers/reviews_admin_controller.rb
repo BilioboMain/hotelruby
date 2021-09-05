@@ -14,10 +14,15 @@ class ReviewsAdminController < ApplicationController
 
   def update
     @review = Review.find(params[:id])
-    if params[:value]=="yes" 
     @review.update({'posted': true})
-    else 
-      @review.update({'posted': false})
-    end
+
+    redirect_to '/reviews_admin/'
+  end
+
+  def hide
+    @review = Review.find(params[:id])
+    @review.update({'posted': false})
+    redirect_to '/reviews_admin/'
   end
 end
+
