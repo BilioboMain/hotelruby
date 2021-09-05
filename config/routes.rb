@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   devise_for :admins
   get 'admins_panel', to:'admins_panel#index'
   get 'reviews_admin', to:'reviews_admin#index'
+  post '/reviews_admin/update', to:'reviews_admin#update'
   post 'bookings/create', to:"bookings#create"
   get 'bookings/', to: "bookings#index"
   get 'bookings/booked'

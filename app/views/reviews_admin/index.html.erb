@@ -1,5 +1,5 @@
         <!-- Page content-->
-        <form action="/reviews/update", method="POST">
+        <form action="/reviews_admin/update", method="POST">
         <div class="container">
             <div class="row">
                 <!-- Blog entries-->
@@ -16,10 +16,8 @@
                                     <div class="small text-muted"><%=review.created_at%></div>
                                     <h2 class="card-title h4"><%= review.author_name%></h2>
                                     <p class="card-text"><%=review.body%></p>
-                                     <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-  <label class="form-check-label" for="flexCheckDefault">
-    Default checkbox
-  </label>
+                                    
+                                    <%= check_box_tag 'id', review.id%>
                                 </div>  
                             </div>
                             <%end%>
