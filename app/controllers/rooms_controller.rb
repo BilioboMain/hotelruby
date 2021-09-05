@@ -1,8 +1,8 @@
 class RoomsController < ApplicationController
   def index
-    @rooms=Room.all()
+    @rooms_admins = RoomsAdmin.all
   end
   def show
-    @room = Room.find(params[:id])
+    @room = RoomsAdmin.find(params[:id])
   end
 end
