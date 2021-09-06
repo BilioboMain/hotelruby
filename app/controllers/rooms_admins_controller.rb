@@ -1,6 +1,6 @@
 class RoomsAdminsController < ApplicationController
   before_action :set_rooms_admin, only: %i[ show edit update destroy ]
-
+  before_action :page_unauthorized
   # GET /rooms_admins or /rooms_admins.json
   def index
     @rooms_admins = RoomsAdmin.all
@@ -55,6 +55,14 @@ class RoomsAdminsController < ApplicationController
       format.json { head :no_content }
     end
   end
+  def page_unauthorized
+    if admin_signed_in?
+      redirect_to login_redirect_path
+    else
+      redirect_to "/rooms/"
+    end
+  end
+
 
   private
     # Use callbacks to share common setup or constraints between actions.
