@@ -32,6 +32,10 @@
                 <li class="nav-item">
           <a class="nav-link" href="/bookings_admin/">Забронировать</a>
         </li>
+        </li>
+                <li class="nav-item">
+            <%= link_to "Sign out", destroy_admin_session_path, :method => :delete, class: "nav-link" %>
+        </li>
       </ul>
     </div>
   </div>
