@@ -14,4 +14,5 @@ class BookingsController < ApplicationController
   def new 
     @rooms=Room.all()
   end
+
 end

@@ -56,9 +56,7 @@ class RoomsAdminsController < ApplicationController
     end
   end
   def page_unauthorized
-    if admin_signed_in?
-      redirect_to login_redirect_path
-    else
+    if !admin_signed_in?
       redirect_to "/rooms/"
     end
   end

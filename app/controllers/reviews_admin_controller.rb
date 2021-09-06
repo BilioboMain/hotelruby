@@ -27,9 +27,7 @@ class ReviewsAdminController < ApplicationController
   end
 
   def page_unauthorized
-    if admin_signed_in?
-      redirect_to login_redirect_path
-    else
+    if !admin_signed_in?
       redirect_to "/reviews/"
     end
   end
