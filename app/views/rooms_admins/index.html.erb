@@ -16,6 +16,7 @@
       <tr>
         <td><%= rooms_admin.name %></td>
         <td><%= rooms_admin.body %></td>
+        <td><%= rooms_admin.price%> <a>$</a></td>
         <td><%= link_to 'Show', rooms_admin %></td>
         <td><%= link_to 'Edit', edit_rooms_admin_path(rooms_admin) %></td>
         <td><%= link_to 'Destroy', rooms_admin, method: :delete, data: { confirm: 'Are you sure?' } %></td>

@@ -10,5 +10,11 @@
   <%= @rooms_admin.body %>
 </p>
 
+<p>
+  <strong>Price:</strong>
+  <%= @rooms_admin.price %>
+  <a>$</a>
+</p>
+
 <%= link_to 'Edit', edit_rooms_admin_path(@rooms_admin) %> |
 <%= link_to 'Back', rooms_admins_path %>
