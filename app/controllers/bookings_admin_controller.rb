@@ -1,7 +1,7 @@
 class BookingsAdminController < ApplicationController
   before_action :page_unauthorized
   def index
-    @bookings = Booking.all()
+    @bookings = Booking.all().order('created_at DESC')
   end
 
   def update
