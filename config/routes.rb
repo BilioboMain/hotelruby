@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
+  get 'generator/', to: 'generator#index'
   get 'bookings_admin', to: 'bookings_admin#index'
   resources :rooms_admins
   get 'reviews_admin/index'
