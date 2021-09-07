@@ -25,7 +25,9 @@ class RoomsAdminsController < ApplicationController
 
     respond_to do |format|
       if @rooms_admin.save
-        format.html { redirect_to @rooms_admin, notice: 'Rooms admin was successfully created.' }
+        format.html do
+          redirect_to @rooms_admin, notice: 'Rooms admin was successfully created.'
+        end
         format.json { render :show, status: :created, location: @rooms_admin }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -38,7 +40,9 @@ class RoomsAdminsController < ApplicationController
   def update
     respond_to do |format|
       if @rooms_admin.update(rooms_admin_params)
-        format.html { redirect_to @rooms_admin, notice: 'Rooms admin was successfully updated.' }
+        format.html do
+          redirect_to @rooms_admin, notice: 'Rooms admin was successfully updated.'
+        end
         format.json { render :show, status: :ok, location: @rooms_admin }
       else
         format.html { render :edit, status: :unprocessable_entity }
