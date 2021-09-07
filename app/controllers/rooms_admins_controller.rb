@@ -1,5 +1,7 @@
+# frozen_string_literal: true
+
 class RoomsAdminsController < ApplicationController
-  before_action :set_rooms_admin, only: %i[ show edit update destroy ]
+  before_action :set_rooms_admin, only: %i[show edit update destroy]
   before_action :page_unauthorized
   # GET /rooms_admins or /rooms_admins.json
   def index
@@ -7,8 +9,7 @@ class RoomsAdminsController < ApplicationController
   end
 
   # GET /rooms_admins/1 or /rooms_admins/1.json
-  def show
-  end
+  def show; end
 
   # GET /rooms_admins/new
   def new
@@ -16,8 +17,7 @@ class RoomsAdminsController < ApplicationController
   end
 
   # GET /rooms_admins/1/edit
-  def edit
-  end
+  def edit; end
 
   # POST /rooms_admins or /rooms_admins.json
   def create
@@ -25,7 +25,7 @@ class RoomsAdminsController < ApplicationController
 
     respond_to do |format|
       if @rooms_admin.save
-        format.html { redirect_to @rooms_admin, notice: "Rooms admin was successfully created." }
+        format.html { redirect_to @rooms_admin, notice: 'Rooms admin was successfully created.' }
         format.json { render :show, status: :created, location: @rooms_admin }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -38,7 +38,7 @@ class RoomsAdminsController < ApplicationController
   def update
     respond_to do |format|
       if @rooms_admin.update(rooms_admin_params)
-        format.html { redirect_to @rooms_admin, notice: "Rooms admin was successfully updated." }
+        format.html { redirect_to @rooms_admin, notice: 'Rooms admin was successfully updated.' }
         format.json { render :show, status: :ok, location: @rooms_admin }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -51,25 +51,26 @@ class RoomsAdminsController < ApplicationController
   def destroy
     @rooms_admin.destroy
     respond_to do |format|
-      format.html { redirect_to rooms_admins_url, notice: "Rooms admin was successfully destroyed." }
+      format.html do
+        redirect_to rooms_admins_url, notice: 'Rooms admin was successfully destroyed.'
+      end
       format.json { head :no_content }
     end
   end
+
   def page_unauthorized
-    if !admin_signed_in?
-      redirect_to "/rooms/"
-    end
+    redirect_to '/rooms/' unless admin_signed_in?
   end
 
-
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_rooms_admin
-      @rooms_admin = RoomsAdmin.find(params[:id])
-    end
 
-    # Only allow a list of trusted parameters through.
-    def rooms_admin_params
-      params.require(:rooms_admin).permit(:name, :body, :price)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_rooms_admin
+    @rooms_admin = RoomsAdmin.find(params[:id])
+  end
+
+  # Only allow a list of trusted parameters through.
+  def rooms_admin_params
+    params.require(:rooms_admin).permit(:name, :body, :price)
+  end
 end

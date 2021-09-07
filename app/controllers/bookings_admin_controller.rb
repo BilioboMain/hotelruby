@@ -1,27 +1,26 @@
+# frozen_string_literal: true
+
 class BookingsAdminController < ApplicationController
   before_action :page_unauthorized
   def index
-    @bookings = Booking.all().order('created_at DESC')
+    @bookings = Booking.all.order('created_at DESC')
   end
 
   def update
     @booking = Booking.find(params[:id])
-    @booking.update({'confirmed': true})
+    @booking.update({ 'confirmed': true })
 
-    redirect_to "/bookings_admin/"
+    redirect_to '/bookings_admin/'
   end
 
   def hide
     @booking = Booking.find(params[:id])
-    @booking.update({'confirmed': false})
+    @booking.update({ 'confirmed': false })
 
-    redirect_to "/bookings_admin/"
+    redirect_to '/bookings_admin/'
   end
-  
+
   def page_unauthorized
-    if !admin_signed_in?
-      redirect_to "/bookings/"
-    end
+    redirect_to '/bookings/' unless admin_signed_in?
   end
-
 end
