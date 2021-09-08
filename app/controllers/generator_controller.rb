@@ -2,7 +2,7 @@ class GeneratorController < ApplicationController
   def index
     require 'csv'
  
-    file = "#{Rails.root}/public/data.csv"
+    file = "#{Rails.root}/public/bookings.csv"
      
     table = Booking.all() # ";0" stops output.  Change "User" to any model.
      
@@ -12,7 +12,6 @@ class GeneratorController < ApplicationController
         writer << s.attributes.map { |a,v| v }
       end
     end
-  
   end
 
 end
