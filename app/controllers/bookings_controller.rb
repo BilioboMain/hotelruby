@@ -17,4 +17,11 @@ class BookingsController < ApplicationController
   def new
     @rooms = Room.all
   end
+
+  @bookings = Booking.all() # ";0" stops output.  Change "User" to any model.
+
+  respond_to do |format|
+    format.html
+    format.csv{render text: @bookings.to_csv }
+  end
 end
