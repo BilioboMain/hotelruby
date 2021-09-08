@@ -1,6 +1,4 @@
-# frozen_string_literal: true
-
-class Booking < ApplicationRecord
+class Generator < ApplicationRecord
 
     def self.to_csv(options = {})
         CSV.generate(options) do |csv|

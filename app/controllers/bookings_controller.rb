@@ -23,5 +23,6 @@ class BookingsController < ApplicationController
   respond_to do |format|
     format.html
     format.csv{render text: @bookings.to_csv }
+    format.xls {render text: @bookings.to_csv(col_sep:"\t")}
   end
 end
