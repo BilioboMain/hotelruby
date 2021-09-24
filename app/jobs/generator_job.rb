@@ -2,7 +2,6 @@ class GeneratorJob < ApplicationJob
   queue_as :default
 
   def perform(*args)
-    require 'csv'
  
     file = "#{Rails.root}/public/data.csv"
      
