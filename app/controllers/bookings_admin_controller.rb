@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 require 'csv'
 class BookingsAdminController < ApplicationController
   before_action :page_unauthorized
@@ -24,11 +25,10 @@ class BookingsAdminController < ApplicationController
     redirect_to '/bookings/' unless admin_signed_in?
   end
 
-
-  @bookings = Booking.all() # ";0" stops output.  Change "User" to any model.
+  @bookings = Booking.all # ";0" stops output.  Change "User" to any model.
 
   respond_to do |format|
     format.html
-    format.csv{render text: @bookings.to_csv }
+    format.csv { render text: @bookings.to_csv }
   end
 end
