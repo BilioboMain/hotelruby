@@ -5,7 +5,7 @@ class GeneratorJob < ApplicationJob
  
     file = "#{Rails.root}/public/data.csv"
      
-    table = Booking.all() # ";0" stops output.  Change "User" to any model.
+    table = Booking.all # ";0" stops output.  Change "User" to any model.
      
     CSV.open( file, 'w' ) do |writer|
 
